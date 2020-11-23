@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import "https://github.com/andreas-31/gopher/hello-world/bar"
+import "example.org/bar"
 
 type rechteck struct {
     laenge int
@@ -27,6 +27,9 @@ func main() {
     r.setBreite(100)
     fmt.Println(r.flaeche())
     
-    // call func from imported package
+    // call exported func from imported package
+    bar.Prefix = "Foo"
     bar.Bar()
+    //bar.bar()  // error: invalid reference to unexported identifier ‘bar.bar’
+
 }
